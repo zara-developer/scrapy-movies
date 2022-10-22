@@ -12,18 +12,18 @@ class ManzoomSpider(scrapy.Spider):
     name='Manzoom'
 
     def start_requests(self):
-        resp=requests.get('https://www.manzoom.ir/foreign/imdbtop250/')
-        content=resp.text
-        s=BeautifulSoup(content,"html.parser")
-        # print(s)
-        urls=[]
-        items=s.find_all('a',attrs={"class":"m-r-2"})
-        with open('movies_250_url.txt', 'w') as f:
+        # resp=requests.get('https://www.manzoom.ir/foreign/imdbtop250/')
+        # content=resp.text
+        # s=BeautifulSoup(content,"html.parser")
+        # # print(s)
+        # urls=[]
+        # items=s.find_all('a',attrs={"class":"m-r-2"})
+        # with open('movies_250_url.txt', 'w') as f:
 
-            for item in items:
-                url=item['href']
-                urls.append(url)
-                f.write("%s\n" % url)
+        #     for item in items:
+        #         url=item['href']
+        #         urls.append(url)
+        #         f.write("%s\n" % url)
 
         urls=open('movies_250_url.txt').read().splitlines()
         print(len(urls))
